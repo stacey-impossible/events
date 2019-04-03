@@ -11,8 +11,11 @@
 #  link        :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  cover       :string
 #
 
 class Event < ApplicationRecord
+  mount_uploader :cover, CoverUploader
+
   validates :title, :city, :address, :start_time, presence: true
 end
