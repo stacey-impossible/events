@@ -20,6 +20,6 @@ class EventTest < ActiveSupport::TestCase
     e = Event.new
     e.save
 
-    assert_equal e.errors.keys, [:title, :city, :address, :start_time]
+    assert_equal e.errors.keys, %i[title city address start_time]
   end
 end

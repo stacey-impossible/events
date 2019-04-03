@@ -1,0 +1,15 @@
+AllCops:
+  Exclude:
+    - 'Gemfile'
+    - 'Rakefile'
+    - 'db/*'
+    - 'db/migrate/*'
+    - 'bin/*'
+    - 'config/*/*'
+    - 'config/*'
+
+Style/Documentation:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
