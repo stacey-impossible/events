@@ -2,16 +2,17 @@
 #
 # Table name: events
 #
-#  id          :bigint(8)        not null, primary key
-#  title       :string
-#  city        :string
-#  description :text
-#  start_time  :datetime
-#  address     :string
-#  link        :string
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
-#  cover       :string
+#  id           :bigint(8)        not null, primary key
+#  title        :string
+#  city         :string
+#  description  :text
+#  start_time   :datetime
+#  address      :string
+#  link         :string
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  cover        :string
+#  organizer_id :bigint(8)
 #
 
 require 'test_helper'
@@ -21,6 +22,6 @@ class EventTest < ActiveSupport::TestCase
     e = Event.new
     e.save
 
-    assert_equal e.errors.keys, %i[title city address start_time]
+    assert_equal e.errors.keys, %i[organizer title city address start_time]
   end
 end
