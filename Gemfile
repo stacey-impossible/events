@@ -21,6 +21,8 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 # Classier solution for file uploads for Rails, Sinatra and other Ruby web frameworks
 gem 'carrierwave'
+# Bulma framework for rails
+gem "bulma-rails", "~> 0.7.4"
 
 group :development, :test do
   # A runtime developer console and IRB alternative with powerful introspection capabilities.

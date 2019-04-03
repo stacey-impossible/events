@@ -1,0 +1,15 @@
+<h1 class="title is-1"> Events </h1>
+
+<div class="tile is-ancestor">
+    <% @events.each do |event| %>
+        <article class="box tile is-3">
+            <div>
+                <p class="title"><%= event.title %></p>
+                <p class="subtitle"><%= event.city %> | <%= event.start_time_humanize %></p>
+                <figure class="image is-4by3">
+                    <img src="<%= event.show_cover%>">
+                </figure>
+            </div>
+        </article>
+    <% end %>
+<div>

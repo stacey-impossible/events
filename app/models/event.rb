@@ -21,4 +21,13 @@ class Event < ApplicationRecord
   mount_uploader :cover, CoverUploader
 
   validates :title, :city, :address, :start_time, presence: true
+
+  def show_cover
+    return '/empty_cover.jpg' if cover.blank?
+    cover
+  end
+
+  def start_time_humanize
+    start_time.strftime('%d.%m.%y %H:%M')
+  end
 end
