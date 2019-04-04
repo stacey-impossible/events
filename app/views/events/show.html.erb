@@ -1,0 +1,20 @@
+<div class="box">
+    <article class="media">
+        <div class="media-left">
+            <figure class="image is-64x64">
+                <img src=<%= @event.show_cover %> alt="Image">
+            </figure>
+        </div>
+        <div class="media-content">
+        <div class="content">
+            <h1 class="title is-1"><%= @event.title %></h1>
+            <p class="subtitle"><%= @event.city %> | <%= @event.start_time_humanize %></p>
+            <p><%= @event.description %></p>
+            <% if @event.link.present? %>
+                <a href="<%= @event.link %>">Link</a>
+            <% end %>
+            <p><small>Organizer: <%= @event.organizer.title %></small></p>
+            <p><small>Address: <%= @event.address %></small></p>
+        </div>
+    </article>
+</div>
