@@ -23,6 +23,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'carrierwave'
 # Bulma framework for rails
 gem "bulma-rails", "~> 0.7.4"
+# Pagination library for Rails, Sinatra, Merb, DataMapper, and more
+gem 'will_paginate', '~> 3.1.0'
 
 group :development, :test do
   # A runtime developer console and IRB alternative with powerful introspection capabilities.

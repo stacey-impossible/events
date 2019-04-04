@@ -17,8 +17,8 @@
 
 class Event < ApplicationRecord
   belongs_to :organizer
-
   mount_uploader :cover, CoverUploader
+  self.per_page = 4
 
   validates :title, :city, :address, :start_time, presence: true
 
