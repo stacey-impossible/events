@@ -21,3 +21,7 @@ one:
   start_time: <%= DateTime.tomorrow %>
   address: random
   organizer: one
+
+invalid:
+  start_time: <%= DateTime.tomorrow %>
+  organizer: one
