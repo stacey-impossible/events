@@ -24,7 +24,7 @@ gem 'carrierwave'
 # Bulma framework for rails
 gem "bulma-rails", "~> 0.7.4"
 # Pagination library for Rails, Sinatra, Merb, DataMapper, and more
-gem 'will_paginate', '~> 3.1.0'
+gem 'will_paginate-bulma'
 # Flexible authentication solution for Rails with Warden.
 gem 'devise'
 

@@ -2,10 +2,11 @@
 
 <div class="tile is-ancestor">
     <% @events.each do |event| %>
-        <article class="box tile is-3">
-            <div>
+        <article class="tile is-3 is-parent">
+            <div class= "tile is-child box is-link" onclick="location.href='<%= event_url(event.id) %>';">
                 <p class="title"><%= event.title %></p>
                 <p class="subtitle"><%= event.city %> | <%= event.start_time_humanize %></p>
+                <p class="description"><%= event.description %></p>
                 <figure class="image is-4by3">
                     <img src="<%= event.show_cover%>">
                 </figure>
@@ -14,4 +15,4 @@
     <% end %>
 </div>
 
-<%= will_paginate @events %>
+<%= will_paginate @events, renderer: BulmaPagination::Rails %>
