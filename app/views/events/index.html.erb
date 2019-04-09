@@ -29,8 +29,8 @@
     <% @events.each do |event| %>
         <article class="tile is-3 is-parent">
             <div class= "tile is-child box is-link" onclick="location.href='<%= event_url(event.id) %>';">
-                <p class="title"><%= event.title %></p>
-                <p class="subtitle"><%= event.city %> | <%= event.start_time_humanize %></p>
+                <p class="title is-4"><%= event.title %></p>
+                <p class="subtitle is-6"><%= event.city %> | <%= event.start_time_humanize %></p>
                 <p class="description"><%= event.description %></p>
                 <figure class="image is-square">
                     <img src="<%= event.show_cover%>">

@@ -27,7 +27,7 @@ class Event < ApplicationRecord
 
   def show_cover
     return '/empty_cover.jpg' if cover.blank?
-    cover
+    cover.url
   end
 
   def start_time_humanize

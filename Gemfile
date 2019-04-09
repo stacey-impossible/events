@@ -37,6 +37,7 @@ gem 'devise', ">= 4.6.0"
 gem "figaro"
 # A library for generating fake data such as names, addresses, and phone numbers.
 gem 'faker'
+gem 'fog-aws'
 
 group :development, :test do
   # A runtime developer console and IRB alternative with powerful introspection capabilities.
