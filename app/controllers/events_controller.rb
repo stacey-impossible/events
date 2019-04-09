@@ -3,13 +3,14 @@ class EventsController < ApplicationController
 
   def index
     @events = case params[:query]
-    when 'coming'
-      Event.coming.page(params[:page]).order(start_time: :desc)
-    when 'past'
-      Event.past.page(params[:page]).order(start_time: :desc)
-    else
-      Event.page(params[:page]).order(start_time: :desc)
-    end
+              when 'coming'
+                Event.coming
+              when 'past'
+                Event.past
+              else
+                Event
+              end
+    @events = @events.page(params[:page]).order(start_time: :desc)
   end
 
   def show
