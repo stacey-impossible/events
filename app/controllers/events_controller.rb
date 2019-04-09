@@ -2,7 +2,14 @@ class EventsController < ApplicationController
   before_action :authenticate_organizer!, only: %i[new create]
 
   def index
-    @events = Event.page(params[:page]).order(start_time: :desc)
+    @events = case params[:query]
+    when 'coming'
+      Event.coming.page(params[:page]).order(start_time: :desc)
+    when 'past'
+      Event.past.page(params[:page]).order(start_time: :desc)
+    else
+      Event.page(params[:page]).order(start_time: :desc)
+    end
   end
 
   def show

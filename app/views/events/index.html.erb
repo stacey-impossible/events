@@ -1,5 +1,30 @@
 <h1 class="title is-1 center"> Events </h1>
+<a href="<%= new_event_path %>" class="button">Create an event</a>
 
+<div class="dropdown is-hoverable">
+    <div class="dropdown-trigger">
+        <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
+        <span>Filter</span>
+        <span class="icon is-small">
+            <i class="fa fa-angle-down" aria-hidden="true"></i>
+        </span>
+        </button>
+    </div>
+    <div class="dropdown-menu" id="dropdown-menu" role="menu">
+        <div class="dropdown-content">
+            <a href="/events" class="dropdown-item">
+                All Events
+            </a>
+            <a href="/events?query=coming" class="dropdown-item">
+                Coming Events
+            </a>
+            <a href="/events?query=past" class="dropdown-item">
+                Past Events
+            </a>
+        </div>
+    </div>
+</div>
+<br></br>
 <div class="tile is-ancestor">
     <% @events.each do |event| %>
         <article class="tile is-3 is-parent">

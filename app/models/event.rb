@@ -22,6 +22,9 @@ class Event < ApplicationRecord
 
   validates :title, :city, :address, :start_time, presence: true
 
+  scope :coming, -> { where('start_time > ?', DateTime.now) }
+  scope :past, -> { where('start_time <= ?', DateTime.now) }
+
   def show_cover
     return '/empty_cover.jpg' if cover.blank?
     cover

@@ -23,6 +23,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'carrierwave'
 # Bulma framework for rails
 gem "bulma-rails", "~> 0.7.4"
+# the font-awesome font bundled as an asset for the rails asset pipeline
+gem "font-awesome-rails"
 # Pagination library for Rails, Sinatra, Merb, DataMapper, and more
 gem 'will_paginate-bulma'
 # Flexible authentication solution for Rails with Warden.
