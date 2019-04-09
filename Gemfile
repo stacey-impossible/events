@@ -32,15 +32,15 @@ gem 'jquery-rails'
 # DaData API jQuery client plugin for Ruby on Rails asset pipeline
 gem 'jquery-dadata-rails', github: 'gordienko/jquery-dadata-rails'
 # Flexible authentication solution for Rails with Warden.
-gem 'devise'
+gem 'devise', ">= 4.6.0"
 # Simple Rails app configuration
 gem "figaro"
+# A library for generating fake data such as names, addresses, and phone numbers.
+gem 'faker'
 
 group :development, :test do
   # A runtime developer console and IRB alternative with powerful introspection capabilities.
   gem 'pry'
-  # A library for generating fake data such as names, addresses, and phone numbers.
-  gem 'faker'
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
