@@ -1,6 +1,12 @@
 <div class="box">
     <h1 class="title is-1 center"> New Event </h1>
-
+    <% if @event.errors.any? %>
+        <ul class="error">
+        <% @event.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+        </ul>
+    <% end %>
     <%= form_for @event do |f| %>
         <div class="field">
             <%= f.label :title, class: 'label' %>
