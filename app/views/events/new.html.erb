@@ -43,3 +43,16 @@
         </div>
     <% end %>
 </div>
+
+<script>
+  $("#event_address").suggestions({
+      serviceUrl: "https://dadata.ru/api/v2",
+      token: "<%=ENV['DADATA_API_KEY']%>",
+      type: "ADDRESS",
+      count: 5,
+      onSelect: function(suggestion) {
+          $('#event_address').val(suggestion.value);
+          $('#event_city').val(suggestion.data.city);
+      }
+  });
+</script>

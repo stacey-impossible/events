@@ -27,8 +27,14 @@ gem "bulma-rails", "~> 0.7.4"
 gem "font-awesome-rails"
 # Pagination library for Rails, Sinatra, Merb, DataMapper, and more
 gem 'will_paginate-bulma'
+# A gem to automate using jQuery with Rails
+gem 'jquery-rails'
+# DaData API jQuery client plugin for Ruby on Rails asset pipeline
+gem 'jquery-dadata-rails', github: 'gordienko/jquery-dadata-rails'
 # Flexible authentication solution for Rails with Warden.
 gem 'devise'
+# Simple Rails app configuration
+gem "figaro"
 
 group :development, :test do
   # A runtime developer console and IRB alternative with powerful introspection capabilities.
