@@ -1,20 +1,18 @@
-<div class="box">
-    <article class="media">
-        <div class="media-left">
-            <figure class="image is-64x64">
+<div class="tile is-ancestor">
+    <article class="tile is-parent">
+            <figure class="image tile is-child box">
                 <img src=<%= @event.show_cover %> alt="Image">
             </figure>
-        </div>
-        <div class="media-content">
-        <div class="content">
+        <div class="tile is-child center box">
             <h1 class="title is-1"><%= @event.title %></h1>
             <p class="subtitle"><%= @event.city %> | <%= @event.start_time_humanize %></p>
             <p><%= @event.description %></p>
             <% if @event.link.present? %>
-                <a href="<%= @event.link %>">Link</a>
+                <a href="<%= @event.link %>">Visit a website</a>
             <% end %>
-            <p><small>Organizer: <%= @event.organizer.title %></small></p>
+            <p style="margin-bottom: 0px;"><small>Organizer: <%= @event.organizer.title %></small></p>
             <p><small>Address: <%= @event.address %></small></p>
+            <a href="<%= events_path %>" class="button" style="margin-top: 1rem;">Back</a>
         </div>
     </article>
 </div>
