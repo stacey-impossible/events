@@ -19,8 +19,10 @@ class Event < ApplicationRecord
   belongs_to :organizer
   mount_uploader :cover, CoverUploader
   self.per_page = 4
+  CITIES = %w[Rostov-on-Don Taganrog Azov].freeze
 
   validates :title, :city, :address, :start_time, presence: true
+  validates :city, inclusion: { in: CITIES }
 
   scope :coming, -> { where('start_time > ?', DateTime.now) }
   scope :past, -> { where('start_time <= ?', DateTime.now) }

@@ -29,8 +29,6 @@ gem "font-awesome-rails"
 gem 'will_paginate-bulma'
 # A gem to automate using jQuery with Rails
 gem 'jquery-rails'
-# DaData API jQuery client plugin for Ruby on Rails asset pipeline
-gem 'jquery-dadata-rails', github: 'gordienko/jquery-dadata-rails'
 # Flexible authentication solution for Rails with Warden.
 gem 'devise', ">= 4.6.0"
 # Simple Rails app configuration

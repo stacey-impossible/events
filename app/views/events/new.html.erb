@@ -13,9 +13,9 @@
             <%= f.text_field :title, autofocus: true, class: 'input' %>
         </div>
 
-        <div class="field">
-            <%= f.label :city, class: 'label' %>
-            <%= f.text_field :city, class: 'input' %>
+        <%= f.label :city, class: 'label' %>
+        <div class="select">
+            <%= f.select :city, Event::CITIES %>
         </div>
 
         <div class="field">
@@ -49,16 +49,3 @@
         </div>
     <% end %>
 </div>
-
-<script>
-  $("#event_address").suggestions({
-      serviceUrl: "https://dadata.ru/api/v2",
-      token: "<%=ENV['DADATA_API_KEY']%>",
-      type: "ADDRESS",
-      count: 5,
-      onSelect: function(suggestion) {
-          $('#event_address').val(suggestion.value);
-          $('#event_city').val(suggestion.data.city);
-      }
-  });
-</script>
