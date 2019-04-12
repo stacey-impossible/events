@@ -15,7 +15,7 @@
 #  organizer_id :bigint(8)
 #
 
-one:
+valid:
   title: test
   city: RnD
   start_time: <%= DateTime.tomorrow %>
@@ -23,5 +23,4 @@ one:
   organizer: one
 
 invalid:
-  start_time: <%= DateTime.tomorrow %>
-  organizer: one
+  link: random

@@ -37,6 +37,7 @@ gem 'devise', ">= 4.6.0"
 gem "figaro"
 # A library for generating fake data such as names, addresses, and phone numbers.
 gem 'faker'
+# Module for the 'fog' gem to support Amazon Web Services
 gem 'fog-aws'
 
 group :development, :test do
@@ -45,6 +46,11 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  # RSpec for Rails-3+
+  gem 'rspec-rails'
+  gem 'rails-controller-testing'
+  # Code coverage for Ruby 1.9+ with a powerful configuration library and automatic merging of coverage across test suites
+  gem 'simplecov', require: false
 end
 
 group :development do
