@@ -35,4 +35,13 @@ class Event < ApplicationRecord
   def start_time_humanize
     start_time.strftime('%d.%m.%y %H:%M')
   end
+
+  def self.apply_filters(organizer_id, city, query)
+    filtered = all
+    filtered = filtered.coming if query == 'coming'
+    filtered = filtered.past if query == 'past'
+    filtered = filtered.where(organizer_id: organizer_id) if organizer_id.present?
+    filtered = filtered.where(city: city) if city.present?
+    filtered
+  end
 end

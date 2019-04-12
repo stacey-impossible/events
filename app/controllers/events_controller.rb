@@ -2,15 +2,11 @@ class EventsController < ApplicationController
   before_action :authenticate_admin!, only: %i[new create]
 
   def index
-    @events = case params[:query]
-              when 'coming'
-                Event.coming
-              when 'past'
-                Event.past
-              else
-                Event
-              end
-    @events = @events.page(params[:page]).order(start_time: :desc)
+    @events = Event.apply_filters(
+      params[:organizer_id],
+      params[:city],
+      params[:query]
+    ).page(params[:page]).order(start_time: :desc)
   end
 
   def show
