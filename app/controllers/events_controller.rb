@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :authenticate_organizer!, only: %i[new create]
+  before_action :authenticate_admin!, only: %i[new create]
 
   def index
     @events = case params[:query]
@@ -22,8 +22,7 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = Event.new(event_params.merge(organizer_id: current_organizer.id))
-
+    @event = Event.new(event_params)
     if @event.save
       redirect_to event_path(@event.id)
     else
@@ -41,7 +40,8 @@ class EventsController < ApplicationController
       :start_time,
       :address,
       :link,
-      :cover
+      :cover,
+      :organizer_id
     )
   end
 end

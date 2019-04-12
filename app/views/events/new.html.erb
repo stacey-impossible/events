@@ -38,6 +38,11 @@
             <%= f.text_field :link, class: 'input' %>
         </div>
 
+        <%= f.label :organizer, class: 'label' %>
+        <div class="select">
+            <%= f.select :organizer_id, Organizer.all.collect {|o| [ o.title, o.id ] } %>
+        </div>
+
         <div class="field">
             <%= f.label :cover, class: 'label' %>
             <%= f.file_field :cover %>

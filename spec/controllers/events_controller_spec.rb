@@ -29,36 +29,36 @@ RSpec.describe EventsController, type: :controller do
   end
 
   describe 'GET new' do
-    fixtures :organizers
+    fixtures :admins
 
     it 'returns success with auth' do
-      sign_in(organizers(:one), scope: :organizer)
+      sign_in(admins(:one), scope: :admin)
       get :new
       expect(response).to be_successful
     end
 
-    it 'returns forbidden without auth' do
+    it 'redirects to login without auth' do
       get :new
-      expect(response).to redirect_to :new_organizer_session
+      expect(response).to redirect_to :new_admin_session
     end
   end
 
   describe 'POST create' do
-    fixtures :events, :organizers
+    fixtures :events, :admins
 
     it 'should not create event without auth' do
       post :create, params: { event: events(:valid) }
-      expect(response).to redirect_to :new_organizer_session
+      expect(response).to redirect_to :new_admin_session
     end
 
     it 'should accept valid params' do
-      sign_in(organizers(:one), scope: :organizer)
+      sign_in(admins(:one), scope: :admin)
       post :create, params: { event: events(:valid).attributes }
       expect(response).to redirect_to event_url(assigns(:event))
     end
 
     it 'should not create event with invalid params' do
-      sign_in(organizers(:one), scope: :organizer)
+      sign_in(admins(:one), scope: :admin)
       post :create, params: { event: events(:invalid).attributes }
       expect(response).to render_template(:new)
     end

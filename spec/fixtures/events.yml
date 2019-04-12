@@ -17,7 +17,7 @@
 
 valid:
   title: test
-  city: RnD
+  city: Rostov-on-Don
   start_time: <%= DateTime.tomorrow %>
   address: random
   organizer: one

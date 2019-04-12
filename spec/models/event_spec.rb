@@ -42,6 +42,6 @@ RSpec.describe Event, type: :model do
   end
 
   it 'start_time_humanize returns correct format' do
-    expect(events(:valid).start_time_humanize).to eq '16.04.19 00:00'
+    expect(events(:valid).start_time_humanize).to match '\d{2}.\d{2}.\d{2} \d{2}:\d{2}'
   end
 end
