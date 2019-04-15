@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :events, only: [:index, :show, :new, :create]
   resources :organizers, only: [:index, :show]
   resources :subscribers, only: [:create]
+  get '/export/:id', to: 'events#export'
 end

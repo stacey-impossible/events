@@ -37,6 +37,8 @@ gem "figaro"
 gem 'faker'
 # Module for the 'fog' gem to support Amazon Web Services
 gem 'fog-aws'
+# icalendar.rb main repository
+gem 'icalendar'
 
 group :development, :test do
   # A runtime developer console and IRB alternative with powerful introspection capabilities.

@@ -27,6 +27,11 @@ class EventsController < ApplicationController
     end
   end
 
+  def export
+    event = Event.find(params[:id])
+    send_data event.as_ics.to_ical, filename: "event_#{params[:id]}.ics"
+  end
+
   private
 
   def event_params

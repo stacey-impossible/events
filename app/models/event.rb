@@ -44,4 +44,14 @@ class Event < ApplicationRecord
     filtered = filtered.where(city: city) if city.present?
     filtered
   end
+
+  def as_ics
+    cal = Icalendar::Calendar.new
+    cal.event do |e|
+      e.dtstart = start_time
+      e.summary = title
+      e.description = description
+    end
+    cal
+  end
 end

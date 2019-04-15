@@ -13,6 +13,7 @@
             <p style="margin-bottom: 0px;"><small>Organizer: <a href="/organizers/<%= @event.organizer.id %>"><%= @event.organizer.title %></a></small></p>
             <p><small>Address: <%= @event.address %></small></p>
             <a href="<%= events_path %>" class="button" style="margin-top: 1rem;">Home</a>
+            <a href="/export/<%= @event.id %>" class="button" style="margin-top: 1rem;">Export as ICS</a>
         </div>
     </article>
 </div>
