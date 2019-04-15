@@ -12,7 +12,7 @@
         <% @organizers.each do |o| %>
         <tr>
             <th><%= o.id %></th>
-            <td><%= o.title %></td>
+            <td><a href="/organizers/<%= o.id %>"><%= o.title %></a></td>
             <td><%= o.description %></td>
         </tr>
         <% end %>

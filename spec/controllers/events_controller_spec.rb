@@ -2,26 +2,15 @@ require 'rails_helper'
 
 RSpec.describe EventsController, type: :controller do
   describe 'GET index' do
-    fixtures :events
-
     it 'returns a successful response' do
       get :index
-      expect(response).to be_successful
-    end
-
-    it 'returns a successful response with past filter' do
-      get :index, params: { query: 'past' }
-      expect(response).to be_successful
-    end
-
-    it 'returns a successful response with coming filter' do
-      get :index, params: { query: 'coming' }
       expect(response).to be_successful
     end
   end
 
   describe 'GET show' do
     fixtures :events
+
     it 'returns a successful response' do
       get :show, params: { id: events(:valid).id }
       expect(response).to be_successful

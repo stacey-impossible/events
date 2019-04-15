@@ -1,0 +1,9 @@
+<div class="tile is-ancestor">
+    <article class="tile is-parent">
+        <div class="tile is-child center box">
+            <h1 class="title is-1"><%= @organizer.title %></h1>
+            <p><%= @organizer.description || 'No Description' %></p>
+            <a href="<%= organizers_path %>" class="button" style="margin-top: 1rem;">List Of Organizers</a>
+        </div>
+    </article>
+</div>

@@ -4,5 +4,6 @@ class OrganizersController < ApplicationController
   end
 
   def show
+    @organizer = Organizer.find(params[:id])
   end
 end
