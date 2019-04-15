@@ -49,6 +49,8 @@ group :development, :test do
   gem 'rails-controller-testing'
   # Code coverage for Ruby 1.9+ with a powerful configuration library and automatic merging of coverage across test suites
   gem 'simplecov', require: false
+  # Preview mail in the browser instead of sending
+  gem "letter_opener"
 end
 
 group :development do

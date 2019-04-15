@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   root to: 'home#index'
   resources :events, only: [:index, :show, :new, :create]
   resources :organizers, only: [:index, :show]
+  resources :subscribers, only: [:create]
 end

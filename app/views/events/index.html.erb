@@ -63,6 +63,28 @@
 </div>
 
 <a href="/events" class="button is-primary is-outlined">Clear filters</a>
+<button class="button is-primary is-pulled-right" onclick="openForm()">Subscribe</button>
+
+<div class="modal">
+    <div class="modal-background">
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">Subscribe for new events</p>
+            </header>
+        </div>
+    <section class="modal-content" style="background-color: whitesmoke;">
+        <%= form_for :subscriber, url: '/subscribers', remote: true, html: { class: 'subscribe_form_container' } do |form| %>
+            <%= form.label :enter_your_email %>
+            <%= form.text_field :email, class: 'input is-pulled-right' %>
+    </section>
+        <div class="modal-card">
+            <%= form.submit "Subscribe", class: 'button is-primary' %>
+        <% end %>
+        <button class="button" onclick="closeForm()">Close</button>
+        </div>
+    </div>
+</div>
+
 <br></br>
 <div class="tile is-ancestor">
     <% @events.each do |event| %>
@@ -80,3 +102,13 @@
 </div>
 
 <%= will_paginate @events, renderer: BulmaPagination::Rails %>
+
+<script>
+function openForm() {
+    $(".modal").addClass("is-active");
+};
+
+function closeForm() {
+    $(".modal").removeClass("is-active");
+};
+</script>

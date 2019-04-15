@@ -20,6 +20,7 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     if @event.save
+      send_subscribers_alert
       redirect_to event_path(@event.id)
     else
       render :new
@@ -39,5 +40,11 @@ class EventsController < ApplicationController
       :cover,
       :organizer_id
     )
+  end
+
+  def send_subscribers_alert
+    Subscriber.all.each do |s|
+      SubscribersMailer.new_event(s.email).deliver_now
+    end
   end
 end
