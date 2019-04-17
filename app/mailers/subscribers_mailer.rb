@@ -1,5 +1,5 @@
 class SubscribersMailer < ApplicationMailer
-  default from: 'notifications@example.com'
+  default from: 'app130129296@heroku.com'
 
   def new_event(email)
     mail(to: email, subject: 'New Event')
