@@ -39,6 +39,7 @@ gem 'faker'
 gem 'fog-aws'
 # icalendar.rb main repository
 gem 'icalendar'
+gem 'sendgrid-ruby'
 
 group :development, :test do
   # A runtime developer console and IRB alternative with powerful introspection capabilities.
