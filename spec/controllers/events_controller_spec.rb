@@ -32,6 +32,21 @@ RSpec.describe EventsController, type: :controller do
     end
   end
 
+  describe 'GET edit' do
+    fixtures :events, :admins
+
+    it 'returns success with auth' do
+      sign_in(admins(:one), scope: :admin)
+      get :edit, params: { id: events(:valid).id }
+      expect(response).to be_successful
+    end
+
+    it 'redirects to login without auth' do
+      get :edit, params: { id: events(:valid).id }
+      expect(response).to redirect_to :new_admin_session
+    end
+  end
+
   describe 'POST create' do
     fixtures :events, :admins
 
@@ -49,6 +64,27 @@ RSpec.describe EventsController, type: :controller do
     it 'should not create event with invalid params' do
       sign_in(admins(:one), scope: :admin)
       post :create, params: { event: events(:invalid).attributes }
+      expect(response).to render_template(:new)
+    end
+  end
+
+  describe 'PUT update' do
+    fixtures :events, :admins
+
+    it 'should not update event without auth' do
+      put :update, params: { id: events(:valid).id, event: events(:valid) }
+      expect(response).to redirect_to :new_admin_session
+    end
+
+    it 'should accept valid params' do
+      sign_in(admins(:one), scope: :admin)
+      put :update, params: { id: events(:valid).id, event: events(:valid).attributes }
+      expect(response).to redirect_to event_url(assigns(:event))
+    end
+
+    it 'should not update event with invalid params' do
+      sign_in(admins(:one), scope: :admin)
+      put :update, params: { id: events(:valid).id, event: events(:invalid).attributes }
       expect(response).to render_template(:new)
     end
   end

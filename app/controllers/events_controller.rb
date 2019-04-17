@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :authenticate_admin!, only: %i[new create]
+  before_action :authenticate_admin!, only: %i[new create edit update]
 
   def index
     @events = Event.apply_filters(
@@ -24,6 +24,20 @@ class EventsController < ApplicationController
       redirect_to event_path(@event.id)
     else
       render :new
+    end
+  end
+
+  def edit
+    @event = Event.find(params[:id])
+    render :new
+  end
+
+  def update
+    @event = Event.find params[:id]
+    if @event.update(event_params)
+      redirect_to event_path(@event.id)
+    else
+      render :edit
     end
   end
 
